@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My_Resume ◕ ω ◕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-blue': '#B8E6FF',
+                        'soft-blue': '#E6F3FF',
+                        'light-blue': '#CCE7FF',
+                        'pastel-pink': '#FFE1E6',
+                        'pastel-yellow': '#FFF4CC'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-soft': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'slide-in': 'slideIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-baby-blue via-soft-blue to-white min-h-screen p-4">
+    <!-- Navbar with Cinnamoroll Eyes -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-lg border-b-2 border-baby-blue/30">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo with Cinnamoroll -->
+                <div class="flex items-center space-x-3 group cursor-pointer">
+                    <div class="w-12 h-12 bg-gradient-to-br from-baby-blue to-white rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                        <div class="text-center text-blue-800">
+                            <img src="imgs/cea686d685517f743ec56c5a325d2d9d.jpg" class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-800 group-hover:text-blue-600 transition-colors duration-300">A'laa Elsayed</h1>
+                        <p class="text-xs text-blue-600">Frontend Developer - Graphic Designer</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links with Cinnamoroll Eyes -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link group flex items-center space-x-2 text-blue-700 hover:text-blue-500 transition-all duration-300 font-medium">
+                        <div class="w-6 h-6 bg-soft-blue rounded-full flex items-center justify-center group-hover:bg-baby-blue transition-colors duration-300">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="group-hover:scale-105 transition-transform duration-300">About</span>
+                    </a>
+                    
+                    <a href="#experience" class="nav-link group flex items-center space-x-2 text-blue-700 hover:text-blue-500 transition-all duration-300 font-medium">
+                        <div class="w-6 h-6 bg-soft-blue rounded-full flex items-center justify-center group-hover:bg-baby-blue transition-colors duration-300">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="group-hover:scale-105 transition-transform duration-300">Experience</span>
+                    </a>
+                    
+                    <a href="#skills" class="nav-link group flex items-center space-x-2 text-blue-700 hover:text-blue-500 transition-all duration-300 font-medium">
+                        <div class="w-6 h-6 bg-soft-blue rounded-full flex items-center justify-center group-hover:bg-baby-blue transition-colors duration-300">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="group-hover:scale-105 transition-transform duration-300">Skills</span>
+                    </a>
+                    
+                    <a href="#projects" class="nav-link group flex items-center space-x-2 text-blue-700 hover:text-blue-500 transition-all duration-300 font-medium">
+                        <div class="w-6 h-6 bg-soft-blue rounded-full flex items-center justify-center group-hover:bg-baby-blue transition-colors duration-300">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="group-hover:scale-105 transition-transform duration-300">Projects</span>
+                    </a>
+                    
+                    <button onclick="openContactForm()" class="nav-link group flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center">
+                            <div class="text-white text-xs">✿</div>
+                        </div>
+                        <span>Contact</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden w-10 h-10 bg-baby-blue rounded-full flex items-center justify-center hover:bg-light-blue transition-colors duration-300">
+                    <div class="text-center text-blue-800">
+                        <div class="text-xs">◕◕</div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden mt-4 pb-4 border-t border-baby-blue/30">
+                <div class="space-y-3 pt-4">
+                    <a href="#about" class="mobile-nav-link flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="text-blue-800 font-medium">About Me</span>
+                    </a>
+                    
+                    <a href="#experience" class="mobile-nav-link flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="text-blue-800 font-medium">Experience</span>
+                    </a>
+                    
+                    <a href="#skills" class="mobile-nav-link flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="text-blue-800 font-medium">Skills</span>
+                    </div>
+                    
+                    <a href="#projects" class="mobile-nav-link flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <div class="text-blue-800 text-xs">✿</div>
+                        </div>
+                        <span class="text-blue-800 font-medium">Projects</span>
+                    </a>
+                    
+                    <button onclick="openContactForm()" class="mobile-nav-link w-full flex items-center space-x-3 p-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg">
+                        <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                            <div class="text-white text-xs">✿</div>
+                        </div>
+                        <span class="font-medium">Contact Me</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating decorative elements on navbar -->
+        <div class="absolute top-2 right-20 text-sm animate-float transform rotate-12 pointer-events-none">
+            <div class="bg-pastel-pink rounded-full p-1 shadow-lg">💫</div>
+        </div>
+        <div class="absolute top-1 left-20 text-sm animate-float transform -rotate-12 pointer-events-none" style="animation-delay: 1s;">
+            <div class="bg-pastel-yellow rounded-full p-1 shadow-lg">⭐</div>
+        </div>
+    </nav>
+
+    <!-- Add padding to body content to account for fixed navbar -->
+    <div class="pt-20">
+    <!-- Floating Cinnamoroll stickers and decorative elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <!-- Cinnamoroll stickers -->
+        <div class="absolute top-10 left-10 text-4xl animate-float transform rotate-12">
+            <div class="bg-white rounded-full p-2 shadow-lg">
+                <div class="text-center text-blue-800">
+                    <img src="imgs/754f9593f3723c92263e457584e4cc92.jpg" class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-32 right-20 text-3xl animate-float transform -rotate-12" style="animation-delay: 1s;">
+            <div class="bg-pastel-pink rounded-full p-2 shadow-lg">💙</div>
+        </div>
+        <div class="absolute top-64 left-1/4 text-2xl animate-float transform rotate-45" style="animation-delay: 2s;">
+            <div class="bg-pastel-yellow rounded-full p-2 shadow-lg">⭐</div>
+        </div>
+        <div class="absolute bottom-32 right-10 text-3xl animate-float transform -rotate-6" style="animation-delay: 0.5s;">
+            <div class="bg-white rounded-full p-2 shadow-lg">
+                <div class="text-center text-blue-800 text-xs">
+                    <img src="imgs/ac41e858e53adb88416862215ccc81fc.jpg" class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-1/2 left-10 text-2xl animate-float transform rotate-12" style="animation-delay: 1.5s;">
+            <div class="bg-baby-blue rounded-full p-2 shadow-lg">🎂</div>
+        </div>
+        <div class="absolute top-20 right-1/3 text-xl animate-float transform -rotate-45" style="animation-delay: 2.5s;">
+            <div class="bg-soft-blue rounded-full p-1 shadow-lg">☁️</div>
+        </div>
+        <div class="absolute bottom-1/3 left-20 text-2xl animate-float transform rotate-6" style="animation-delay: 3s;">
+            <div class="bg-white rounded-full p-2 shadow-lg">🌟</div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-3 gap-6">
+        <!-- Left Column -->
+        <div id="about" class="lg:col-span-1 space-y-6">
+            <!-- Profile Card -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <div class="text-center mb-6 relative">
+                    <!-- Cinnamoroll Character -->
+                    <div class="w-32 h-32 bg-gradient-to-br from-baby-blue to-white rounded-full mx-auto mb-4 flex items-center justify-center text-4xl hover:animate-wiggle cursor-pointer shadow-lg">
+                        <div class="text-center text-blue-800">
+                            <img src="imgs/Cropped_Image.png" class="w-32 h-32 rounded-full shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                        </div>
+                    </div>
+                    <!-- Add this right after the main Cinnamoroll character -->
+                    <div class="absolute -top-2 -right-2 text-lg animate-bounce-slow">
+                        <div class="bg-pastel-pink rounded-full p-1 shadow-lg transform rotate-12">💫</div>
+                    </div>
+                    
+                    <div class="bg-pastel-yellow rounded-2xl p-3 mb-4 transform hover:scale-105 transition-all duration-300">
+                        <h1 class="text-2xl font-bold text-blue-800">A'laa Elsayed</h1>
+                        <div class="flex justify-center space-x-2 mt-2">
+                            <span class="bg-baby-blue text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Frontend</span>
+                            <span class="bg-pastel-pink text-blue-800 px-3 py-1 rounded-full text-sm font-medium">GD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-sm text-blue-700 leading-relaxed mb-6 bg-soft-blue/50 rounded-2xl p-4">
+                    I'm a passionate frontend developer who loves creating beautiful, interactive web experiences. Like Cinnamoroll floating through clouds, I enjoy bringing designs to life with smooth animations and delightful user interactions.
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3 p-3 bg-baby-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">📅</div>
+                        <span class="text-blue-800 font-medium">Born: September 13, 2006</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-baby-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">📍</div>
+                        <span class="text-blue-800 font-medium">Damanhour - Egypt</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-baby-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">📱</div>
+                        <span class="text-blue-800 font-medium">+201507977456</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-baby-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">✉️</div>
+                        <span class="text-blue-800 font-medium">alaaelsaye702@gmail.com</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-baby-blue/30 rounded-xl hover:bg-baby-blue/50 transition-colors duration-300">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">🐙</div>
+                        <span class="text-blue-800 font-medium">VannyVan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Card -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <div class="bg-pastel-yellow rounded-2xl p-4 mb-4 text-center">
+                    <h2 class="text-xl font-bold text-blue-800">Education Journey</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-soft-blue/50 transition-all duration-300 hover:scale-105">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold text-blue-800">We Applied Technology School - Alex</div>
+                            <div class="text-sm text-blue-600">IT (Web Development) (2021-2024)</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-soft-blue/50 transition-all duration-300 hover:scale-105">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold text-blue-800">Borg Elarab Technological University</div>
+                            <div class="text-sm text-blue-600">IT (2024-2028)</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3 p-3 bg-soft-blue/30 rounded-xl hover:bg-soft-blue/50 transition-all duration-300 hover:scale-105">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold text-blue-800">Freelancer</div>
+                            <div class="text-sm text-blue-600">Web Developer (2023-2025)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cute character -->
+                <div class="text-center mt-4 relative">
+                    <div class="inline-block text-3xl animate-bounce-slow">🎓</div>
+                    <div class="absolute -top-1 -right-1 text-sm">
+                        <div class="bg-baby-blue rounded-full p-1 shadow-sm">
+                            <div class="text-center text-blue-800 text-xs">◕◕</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Progress -->
+            <div id="skills" class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <div class="bg-blue-500 text-white rounded-2xl p-4 mb-4 text-center">
+                    <h2 class="text-xl font-bold">SKILLS</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-blue-800">HTML/CSS/Tailwind</span>
+                            <span class="text-blue-600">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full skill-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-blue-800">React/Node</span>
+                            <span class="text-blue-600">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-blue-800">PHP/Laravel</span>
+                            <span class="text-blue-600">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full skill-bar" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-blue-800">Photoshop</span>
+                            <span class="text-blue-600">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 relative">
+                    <div class="inline-block text-2xl animate-pulse-soft">💻</div>
+                    <div class="absolute -top-2 -right-2 text-lg animate-float">
+                        <div class="bg-white rounded-full p-1 shadow-lg transform -rotate-12">
+                            <div class="text-center text-blue-800 text-xs">ω</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Experience Card -->
+            <div id="experience" class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <!-- Replace the existing title section with this -->
+                <div class="bg-gradient-to-r from-pastel-pink to-pastel-yellow rounded-2xl p-4 mb-6 text-center relative overflow-hidden">
+                    <h2 class="text-2xl font-bold text-blue-800">Work Experience</h2>
+                    <div class="absolute top-2 right-4 text-2xl animate-float">🚀</div>
+                    <div class="absolute top-1 left-4 text-lg animate-float transform rotate-12" style="animation-delay: 0.5s;">
+                        <div class="bg-white rounded-full p-1 shadow-lg">
+                            <div class="text-center text-blue-800 text-xs">◕◕</div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-1 right-8 text-sm animate-float transform -rotate-12" style="animation-delay: 1s;">
+                        <div class="bg-baby-blue rounded-full p-1 shadow-lg">☁️</div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-baby-blue/20 rounded-2xl p-4 hover:bg-baby-blue/30 transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-2xl">⭐</div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-blue-800 text-lg">Senior Frontend Developer</h3>
+                                <p class="text-blue-600 font-medium">WE School | 2022-Present</p>
+                                <ul class="text-sm text-blue-700 mt-2 space-y-1">
+                                    <li>• Basic HTML & CSS & JS Projects</li>
+                                    <li>• Got a Photoshop Certificate from Adobe</li>
+                                    <li>• Make Advanced Web Designes by Photoshop & Canva</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-baby-blue/20 rounded-2xl p-4 hover:bg-baby-blue/30 transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-2xl">🌟</div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-blue-800 text-lg">Frontend Developer</h3>
+                                <p class="text-blue-600 font-medium">WE School | 2023-2024</p>
+                                <ul class="text-sm text-blue-700 mt-2 space-y-1">
+                                    <li>• Built Interactive E-commerce Platform with React.js</li>
+                                    <li>• Collaborated with Design Team on UI/UX Improvements by Figma</li>
+                                    <li>• Integrated Websites and third-party APIs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-baby-blue/20 rounded-2xl p-4 hover:bg-baby-blue/30 transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-2xl">💫</div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-blue-800 text-lg">Junior Developer</h3>
+                                <p class="text-blue-600 font-medium">BATU | 2024-2025</p>
+                                <ul class="text-sm text-blue-700 mt-2 space-y-1">
+                                    <li>• Developed Responsive Websites for Various Clients</li>
+                                    <li>• Learned Modern JavaScript Frameworks and Tools</li>
+                                    <li>• Participated in Code Reviews and Team Meetings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <div class="bg-pastel-yellow rounded-2xl p-4 mb-6 text-center relative">
+                    <h2 class="text-2xl font-bold text-blue-800">Tech Stack & Tools</h2>
+                    <div class="absolute -top-1 -left-1 text-lg animate-float transform rotate-12">
+                        <div class="bg-white rounded-full p-1 shadow-lg">
+                            <div class="text-center text-blue-800 text-xs">ω</div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-1 -right-1 text-lg animate-float transform -rotate-12" style="animation-delay: 0.7s;">
+                        <div class="bg-pastel-pink rounded-full p-1 shadow-lg">💫</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">⚛️</div>
+                        <div class="font-semibold">React</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">📗</div>
+                        <div class="font-semibold">Node.js</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">🎨</div>
+                        <div class="font-semibold">Figma</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">🔥</div>
+                        <div class="font-semibold">PHP</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">💨</div>
+                        <div class="font-semibold">Tailwind</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-gray-400 to-gray-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">📱</div>
+                        <div class="font-semibold">Laravel</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <div class="font-semibold">HTML & CSS & JS</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl p-4 text-center text-white hover:scale-110 transition-all duration-300 cursor-pointer">
+                        <div class="text-3xl mb-2">🐙</div>
+                        <div class="font-semibold">GitHub</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Showcase -->
+            <div id="projects" class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-lg card-hover">
+                <div class="bg-gradient-to-r from-baby-blue to-soft-blue rounded-2xl p-4 mb-6 text-center">
+                    <h2 class="text-2xl font-bold text-blue-800">Featured Projects</h2>
+                    <div class="text-2xl mt-2 animate-bounce-slow">🎂</div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gradient-to-br from-pastel-pink/30 to-pastel-yellow/30 rounded-2xl p-4 hover:scale-105 transition-all duration-300">
+                        <h3 class="font-bold text-blue-800 mb-2">KBATU Platform</h3>
+                        <p class="text-sm text-blue-700 mb-3">Children Learning Platform with React & Node.js</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">React</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Node.js</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-baby-blue/30 to-soft-blue/30 rounded-2xl p-4 hover:scale-105 transition-all duration-300">
+                        <h3 class="font-bold text-blue-800 mb-2">Flowers Shop</h3>
+                        <p class="text-sm text-blue-700 mb-3">Beautiful Flowers Shop Wbsite with animations & forecasts</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full text-xs">PHP</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Laravel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating action button -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="openContactForm()" class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-lg hover:shadow-xl text-white text-2xl hover:scale-110 transition-all duration-300 animate-pulse-soft">
+            💌
+        </button>
+    </div>
+
+    <!-- Kawaii Footer -->
+    <footer class="mt-12 relative">
+        <div class="bg-gradient-to-r from-pastel-pink/50 via-baby-blue/50 to-pastel-yellow/50 rounded-t-3xl p-6 mx-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Main Cinnamoroll character for footer -->
+                <div class="text-center mb-4">
+                    <div class="inline-block relative">
+                        <div class="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center hover:animate-wiggle cursor-pointer">
+                            <div class="text-center text-blue-800">
+                                <img src="imgs/9a0b77acad6c3d872e583468fdd891e1.jpg" class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                            </div>
+                        </div>
+                        <!-- Floating hearts around main character -->
+                        <div class="absolute -top-1 -left-1 text-xs animate-bounce-slow">💙</div>
+                        <div class="absolute -top-1 -right-1 text-xs animate-bounce-slow" style="animation-delay: 0.5s;">⭐</div>
+                        <div class="absolute -bottom-1 -left-1 text-xs animate-bounce-slow" style="animation-delay: 1s;">🌟</div>
+                        <div class="absolute -bottom-1 -right-1 text-xs animate-bounce-slow" style="animation-delay: 1.5s;">☁️</div>
+                    </div>
+                </div>
+                
+                <!-- Footer content -->
+                <div class="text-center space-y-3">
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="bg-white rounded-full p-2 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white group-hover:bg-blue-600">
+                                🐙
+                            </div>
+                        </a>
+                        <a href="#" class="bg-white rounded-full p-2 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group">
+                            <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white group-hover:bg-pink-600">
+                                📷
+                            </div>
+                        </a>
+                        <a href="#" class="bg-white rounded-full p-2 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group">
+                            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white group-hover:bg-purple-600">
+                                💼
+                            </div>
+                        </a>
+                        <a href="#" class="bg-white rounded-full p-2 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white group-hover:bg-green-600">
+                                ✉️
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-3 inline-block">
+                        <p class="text-blue-800 font-medium text-sm">Made with 💙 and lots of ☁️ dreams</p>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-2">
+                        <div class="w-2 h-2 bg-blue-300 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-pink-300 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                        <div class="w-2 h-2 bg-yellow-300 rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+                        <div class="w-2 h-2 bg-pink-300 rounded-full animate-bounce" style="animation-delay: 0.6s;"></div>
+                        <div class="w-2 h-2 bg-blue-300 rounded-full animate-bounce" style="animation-delay: 0.8s;"></div>
+                    </div>
+                    
+                    <p class="text-xs text-blue-600 mt-2">© 2025 A'laa Elsayed • Flying through clouds since 2025 ☁️✨</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Extra kawaii elements -->
+        <div class="absolute top-2 left-4 text-lg animate-float transform rotate-12">
+            <div class="bg-white rounded-full p-1 shadow-lg">🎂</div>
+        </div>
+        <div class="absolute top-2 right-4 text-lg animate-float transform -rotate-12" style="animation-delay: 1s;">
+            <div class="bg-pastel-yellow rounded-full p-1 shadow-lg">⭐</div>
+        </div>
+        <div class="absolute top-1/2 left-2 text-sm animate-float transform rotate-45" style="animation-delay: 2s;">
+            <div class="bg-baby-blue rounded-full p-1 shadow-lg">
+                <div class="text-center text-blue-800 text-xs">◕</div>
+            </div>
+        </div>
+        <div class="absolute top-1/2 right-2 text-sm animate-float transform -rotate-45" style="animation-delay: 1.5s;">
+            <div class="bg-pastel-pink rounded-full p-1 shadow-lg">💙</div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl transform scale-95 transition-all duration-300" id="modalContent">
+            <!-- Close button -->
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-blue-800">Send me a message! 💌</h2>
+                <button onclick="closeContactForm()" class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-300">
+                    ✕
+                </button>
+            </div>
+            
+            <!-- Cinnamoroll character -->
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-baby-blue to-white rounded-full mx-auto flex items-center justify-center shadow-lg animate-float">
+                    <div class="text-center text-blue-800">
+                        <img src="imgs/e820207f1f315b46feb52ced747f6004.jpg" class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:animate-wiggle transition-all duration-300">
+                    </div>
+                </div>
+                <p class="text-blue-600 text-sm mt-2">I'd love to hear from you!</p>
+            </div>
+            
+            <!-- Contact Form -->
+            <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-blue-800 mb-2">Your Name ✨</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-3 border-2 border-baby-blue rounded-2xl focus:border-blue-500 focus:outline-none transition-colors duration-300 bg-soft-blue/20"
+                           placeholder="What should I call you?">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-blue-800 mb-2">Your Email 📧</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border-2 border-baby-blue rounded-2xl focus:border-blue-500 focus:outline-none transition-colors duration-300 bg-soft-blue/20"
+                           placeholder="your@email.com">
+                </div>
+                
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-blue-800 mb-2">Subject 🌟</label>
+                    <input type="text" id="subject" name="subject" required 
+                           class="w-full px-4 py-3 border-2 border-baby-blue rounded-2xl focus:border-blue-500 focus:outline-none transition-colors duration-300 bg-soft-blue/20"
+                           placeholder="What's this about?">
+                </div>
+                
+                <div>
+                    <label for="message" class="block text-sm font-medium text-blue-800 mb-2">Message 💭</label>
+                    <textarea id="message" name="message" rows="4" required 
+                              class="w-full px-4 py-3 border-2 border-baby-blue rounded-2xl focus:border-blue-500 focus:outline-none transition-colors duration-300 bg-soft-blue/20 resize-none"
+                              placeholder="Tell me what's on your mind..."></textarea>
+                </div>
+                
+                <div class="flex space-x-3 pt-4">
+                    <button type="submit" 
+                            class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-6 rounded-2xl font-semibold hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Send Message 🚀
+                    </button>
+                    <button type="button" onclick="closeContactForm()" 
+                            class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-2xl font-semibold transition-all duration-300 hover:scale-105">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Success message (hidden by default) -->
+            <div id="successMessage" class="hidden text-center py-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-full mx-auto flex items-center justify-center mb-4 animate-bounce-slow">
+                    <div class="text-white text-2xl">✓</div>
+                </div>
+                <h3 class="text-xl font-bold text-green-600 mb-2">Message Sent! 🎉</h3>
+                <p class="text-green-500 text-sm mb-4">Thank you for reaching out! I'll get back to you soon.</p>
+                <button onclick="closeContactForm()" 
+                        class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-2xl font-semibold transition-all duration-300 hover:scale-105">
+                    Close
+                </button>
+            </div>
+            
+            <!-- Decorative stickers -->
+            <div class="absolute -top-2 -left-2 text-lg animate-float transform rotate-12">
+                <div class="bg-pastel-pink rounded-full p-1 shadow-lg">💫</div>
+            </div>
+            <div class="absolute -top-2 -right-2 text-lg animate-float transform -rotate-12" style="animation-delay: 0.5s;">
+                <div class="bg-pastel-yellow rounded-full p-1 shadow-lg">⭐</div>
+            </div>
+            <div class="absolute -bottom-2 -left-2 text-sm animate-float transform rotate-45" style="animation-delay: 1s;">
+                <div class="bg-baby-blue rounded-full p-1 shadow-lg">☁️</div>
+            </div>
+            <div class="absolute -bottom-2 -right-2 text-sm animate-float transform -rotate-45" style="animation-delay: 1.5s;">
+                <div class="bg-white rounded-full p-1 shadow-lg">
+                    <div class="text-center text-blue-800 text-xs">◕</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openContactForm() {
+            const modal = document.getElementById('contactModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animate modal in
+            setTimeout(() => {
+                modalContent.style.transform = 'scale(1)';
+            }, 10);
+        }
+        
+        function closeContactForm() {
+            const modal = document.getElementById('contactModal');
+            const modalContent = document.getElementById('modalContent');
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Animate modal out
+            modalContent.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                
+                // Reset form and show form again if success message was showing
+                form.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                form.reset();
+            }, 300);
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:alaaelsaye702@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Hi Alex!\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent from your kawaii portfolio! 💙`
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            form.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeContactForm();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeContactForm();
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
